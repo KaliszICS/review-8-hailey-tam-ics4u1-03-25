@@ -1,17 +1,23 @@
 public class PracticeProblem {
 
 	public static void main(String args[]) {
-
 		System.out.println(pluralize("LifY"));
-	}
-	public static String pluralize(String word) {
-		if (word.endsWith("y")){ 
-			return "ies";
+		System.out.println(min(3,2,5));
+		System.out.println(min(1,2,3));
+		System.out.println(min(5,6,3));
+		System.out.println(isLeapYear(2024));
+		System.out.println(isLeapYear(2023));
 		}
-		else if (word.equalsIgnoreCase("ey") && word.endsWith("ey")){
-				return "eys";
+
+	public static String pluralize(String word) {
+		word = word.toLowerCase();
+		if (word.endsWith("ey")){ 
+			return "eys";
+		}
+		else if (word.endsWith("y")){
+				return "ies";
 			}
-		else if (word.equalsIgnoreCase("ife") & word.endsWith("ife")){
+		else if (word.endsWith("ife")){
 			return "ives";
 		}
 		else {
@@ -28,15 +34,21 @@ public class PracticeProblem {
 		}
 	else {
 		return num3;
-	}
+		}
 	}
 
 	public static boolean isLeapYear(int year){
-		if ((year/4)%2 == 0) {
-			if ((year/100)%2 == 0){
-				if ((year/400)%2 == 0){
+		if (year % 4 == 0) {
+			if (year % 100 == 0){
+				if (year % 400 == 0){
 					return true;
 				}
+				else {
+					return false;
+				}
+			}
+			else {
+				return true;
 			}
 		}
 		else {
